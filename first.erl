@@ -25,3 +25,7 @@ area(A,B,C) ->
 square(S) ->
     
     S*S.
+
+treble(T) ->
+    
+    T*3.
