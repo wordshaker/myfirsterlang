@@ -1,5 +1,10 @@
 -module(third).
--export([maxThree/3,howManyEqual/3]).
+-export([xOr1/2,xOr2/2,maxThree/3,howManyEqual/3]).
+
+% XOR
+
+xOr1(X,Y) ->
+    X=/=Y.
 
 % Works out the maximum value of three integers.
 % Could assign the M = erlang:max(F,S) to a variable but I prefer this
