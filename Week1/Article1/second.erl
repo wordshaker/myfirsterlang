@@ -10,9 +10,9 @@ hypothenuse(W,H) ->
 % The Perimeter of a right angled triangle.
 
 perimeter(W,H) ->
-second:hypothenuse(W,H)+W+H.
+    second:hypothenuse(W,H)+W+H.
 
 % Area of a right angled triangle
 
 area(W,H) ->
-    (W*H)/2.
+    first:mult(W,H)/2.
