@@ -6,6 +6,7 @@
 % position. Below is a manual working out of how it works for the fourth number in the sequence.
 
 % fib(4) = 3
+% fib(4,0,1) => fib(4-1, 1, 0+1) => fib(3-1, 1, 1 + 1) => 1 + 2 = 3 
 % fib(4,0,1) => fib(3, 1, 1) => fib(2, 1, 2) => 1 + 2 = 3 
 % fib(P,H,T) because P > 2 => fib(P,H,T) because P > 2 => H+T because P=<2
 
