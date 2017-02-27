@@ -1,5 +1,5 @@
 -module(fourth).
--export([fib/1,pieces/1]).
+-export([fib/1,pieces/1,cubePieces/1]).
 
 % Recursive function to calculate Fibonacci numbers
 fib(0) ->
@@ -16,3 +16,8 @@ pieces(0) ->
 pieces(N) when N>0 ->
 pieces(N - 1) + N.
 
+% How many pieces? 3D
+cubePieces(0) ->
+    1;
+cubePieces(N) when N>0 ->
+    cubePieces(N-1) + pieces(N - 1).
