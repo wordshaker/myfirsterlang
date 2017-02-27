@@ -10,19 +10,29 @@ I used Erlang 19.2 when running these functions.
 #### [Article1](https://github.com/wordshaker/myfirsterlang/tree/master/Week1/Article1) - My First Erlang Program
 
 Includes functions for:
-* Squaring a valu
-* Trebling a value
-* Calculating the size of a hypthenuse of a right angled triangle give the lengths of the two other sides
+* Squaring a value.
+* Trebling a value.
+* Calculating the size of a hypthenuse of a right angled triangle give the lengths of the two other sides.
 * The perimeter of a right-angled triangle, given the lengths of the two short sides.
 * The area of a right-angled triangle, given the lengths of the two short sides.
 
 #### [Article2](https://github.com/wordshaker/myfirsterlang/tree/master/Week1/Article2) - Erlang data in practice
 
-Involved evaluating Erlang expressions and testing them in the Erlang shell
+Involved evaluating Erlang expressions and testing them in the Erlang shell.
 
-#### [Article3](https://github.com/wordshaker/myfirsterlang/tree/master/Week1/Article3) - Variables and patterns in practice
+##### [Article3](https://github.com/wordshaker/myfirsterlang/tree/master/Week1/Article3) - Variables and patterns in practice
 
 Included:
-* Giving three ways of defining exclusive or (XOR)
+* Giving three ways of defining exclusive or (XOR).
 * Giving a definition of the function maxThree which takes three integers and returns the maximum of the three.
 * Giving a definition of the function howManyEqual which takes three integers and returns an integer, counting how many of its three arguments are equal.
+
+##### [Article4](https://github.com/wordshaker/myfirsterlang/tree/master/Week1/Article4) - Variables and patterns in practice
+
+This was the first lesson into direct recursion. To practise this functions were written to do the following:
+* Calculating a number in the Fibonacci Sequence based on its position
+* Given a 2D shape, the number of pieces that could be created for a given number of straight line slices.
+* Given a 3D shape, the number of pieces that could be created for a given number of straight line slices.
+* Given a number of dimensions and a number of slices, the maximum number of pieces that can be produced.
+
+For the second and third functions [this site](http://mathworld.wolfram.com/CircleDivisionbyLines.html) was used for reference.

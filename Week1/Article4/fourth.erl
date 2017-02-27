@@ -22,7 +22,7 @@ cubePieces(0) ->
 cubePieces(N) when N>0 ->
     cubePieces(N - 1) + pieces(N - 1).
 
-% How many pieces? anyD
+% How many pieces? Takes the parameters of dimensions (i.e. 3 for 3D) and Slices (number of slices)
 dimensionPieces(_,0) ->
     1;
 dimensionPieces(Dimensions,Slices) when Dimensions==2 ->
