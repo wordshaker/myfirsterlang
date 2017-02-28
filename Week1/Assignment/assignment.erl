@@ -1,5 +1,5 @@
 -module(assignment).
--export([perimeter/1]).
+-export([perimeter/1,area/1]).
 -include_lib("eunit/include/eunit.hrl").
 
 %% perimeter takes a shape & returns the perimeter of the shape
@@ -19,3 +19,19 @@ perimeter({rightangledtriangle, Side1, Side2}) ->
 perimeter({circle, Diameter}) ->
     math:pi()*Diameter.
 
+%% Areas of the triangle's
+% http://www.mathopenref.com/heronsformula.html
+
+% First, right angled triangle with all 3 sides known
+area({rightangledtriangle, Side1, Side2, Side3}) ->
+    HP = perimeter({rightangledtriangle, Side1, Side2}) /2,
+    math:sqrt(HP*(HP-Side1)*(HP-Side2)*(HP-Side3));
+% Second, right angled triangle with only 2 sides known
+area({rightangledtriangle, Side1, Side2}) ->
+    Side3 = second:hypothenuse(Side1, Side2),
+    HP = perimeter({rightangledtriangle, Side1, Side2}) /2,
+    math:sqrt(HP*(HP-Side1)*(HP-Side2)*(HP-Side3));
+% Third, a generic triangle with all 3 sides known
+area({triangle, Side1, Side2, Side3}) ->
+    HP = perimeter({triangle, Side1, Side2, Side3}) /2,
+    math:sqrt(HP*(HP-Side1)*(HP-Side2)*(HP-Side3)).
