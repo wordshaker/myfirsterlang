@@ -34,4 +34,14 @@ area({rightangledtriangle, Side1, Side2}) ->
 % Third, a generic triangle with all 3 sides known
 area({triangle, Side1, Side2, Side3}) ->
     HP = perimeter({triangle, Side1, Side2, Side3}) /2,
-    math:sqrt(HP*(HP-Side1)*(HP-Side2)*(HP-Side3)).
+math:sqrt(HP*(HP-Side1)*(HP-Side2)*(HP-Side3));
+
+% Areas of the remaining shapes
+
+area({square, Side}) ->
+    Side*Side;
+area({rectangle, Width, Height}) ->
+    Width * Height;
+area({circle, Diameter}) ->
+    A =math:pi()*(Diameter/2),
+    A*A.
