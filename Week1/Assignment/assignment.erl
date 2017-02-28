@@ -1,5 +1,5 @@
 -module(assignment).
--export([perimeter/1,area/1]).
+-export([perimeter/1,area/1,enclose/1]).
 -include_lib("eunit/include/eunit.hrl").
 
 %% perimeter takes a shape & returns the perimeter of the shape
@@ -34,10 +34,9 @@ area({rightangledtriangle, Side1, Side2}) ->
 % Third, a generic triangle with all 3 sides known
 area({triangle, Side1, Side2, Side3}) ->
     HP = perimeter({triangle, Side1, Side2, Side3}) /2,
-math:sqrt(HP*(HP-Side1)*(HP-Side2)*(HP-Side3));
+    math:sqrt(HP*(HP-Side1)*(HP-Side2)*(HP-Side3));
 
 % Areas of the remaining shapes
-
 area({square, Side}) ->
     Side*Side;
 area({rectangle, Width, Height}) ->
@@ -45,3 +44,19 @@ area({rectangle, Width, Height}) ->
 area({circle, Diameter}) ->
     A =math:pi()*(Diameter/2),
     A*A.
+
+% Enclose
+
+%find the hieght of a triangle
+enclose({triangle, Side1, Side2, Side3}) when Side1 > Side2, Side3->
+    Height = ((area({triangle,Side1,Side2,Side3}))/Side1)*2,
+    {rectangle, Height, Side1};
+enclose({triangle, Side1, Side2, Side3}) when Side2 > Side1, Side3->
+    Height = ((area({triangle,Side1,Side2,Side3}))/Side1)*2,
+    {rectangle, Height, Side1};
+enclose({triangle, Side1, Side2, Side3}) when Side3 > Side2, Side1->
+    Height = ((area({triangle,Side1,Side2,Side3}))/Side1)*2,
+    {rectangle, Height, Side1};
+enclose({triangle, Side1, Side2, Side3}) ->
+    Height = ((area({triangle,Side1,Side2,Side3}))/Side1)*2,
+    {rectangle, Height, Side1}.
