@@ -1,6 +1,5 @@
 -module(assignment).
 -export([perimeter/1,area/1,enclose/1]).
--include_lib("eunit/include/eunit.hrl").
 
 %% perimeter takes a shape & returns the perimeter of the shape
 % I started with a square as the four sides are the same size it seemed the easiest shape.
@@ -45,9 +44,7 @@ area({circle, Diameter}) ->
     A =math:pi()*(Diameter/2),
     A*A.
 
-% Enclose
-
-%find the hieght of a triangle
+% Enclose for a triangle
 enclose({triangle, Side1, Side2, Side3}) when Side1 > Side2, Side3->
     Height = ((area({triangle,Side1,Side2,Side3}))/Side1)*2,
     {rectangle, Height, Side1};
@@ -59,4 +56,12 @@ enclose({triangle, Side1, Side2, Side3}) when Side3 > Side2, Side1->
     {rectangle, Height, Side1};
 enclose({triangle, Side1, Side2, Side3}) ->
     Height = ((area({triangle,Side1,Side2,Side3}))/Side1)*2,
-    {rectangle, Height, Side1}.
+    {rectangle, Height, Side1};
+
+% Enclose for a right angled triangle wasn't done as it's a rectangle with the same height 
+% and width of the  triangle. Square and rectangle, again involve no calculation as the 
+% enclosing rectangle would be the same size. 
+
+% Enclose for a Circle 
+enclose({circle, Diameter}) ->
+    {rectangle, Diameter, Diameter}.
