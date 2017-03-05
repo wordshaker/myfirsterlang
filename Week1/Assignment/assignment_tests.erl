@@ -23,5 +23,5 @@ enclose_triangle_three_test() -> {rectangle,2.0453835214941964,8} = assignment:e
 enclose_circle_nil_test() -> {rectangle,13,13} = assignment:enclose({circle, 13}).
 
 % Unit Tests For Bits
-
-bits_tail_one_test() -> 4 = assignment:bits(29).
+bits_nil_test() -> 0 = assignment:bits(0).
+bits_one_test() -> 4 = assignment:bits(29).

@@ -6,7 +6,6 @@
 % I then followed this with a rectangle, then a triangle where you knew all sides size and 
 % then reused a the hypothenuse function from an earlier exerice to calculate the longest
 % side from the other twos. Finally, the perimeter of a circle was calculated.
-
 perimeter({square, Side}) ->
     Side*4;
 perimeter({rectangle, Width, Height}) ->
@@ -70,12 +69,17 @@ enclose({circle, Diameter}) ->
 % A positive integer n has b bits 2b-1 ≤ n ≤ 2b – 1.
 % http://www.exploringbinary.com/number-of-bits-in-a-decimal-integer/
 
-% number, divided by 2, grab the remainder, flip em
 
-bits(Number) when Number>0->
-bits(Number, 0).
+% Tail Recursion
+%bits(Number) when Number>0->
+%    bits(Number, 0).
+%bits(0, SumOfBits)->
+%     SumOfBits;
+%bits(Number, SumOfBits) ->
+%     bits(Number div 2, SumOfBits+(Number rem 2)). 
 
-bits(0, SumOfBits)->
-     SumOfBits;
-bits(Number, SumOfBits) ->
-     bits(Number div 2, SumOfBits+(Number rem 2)). 
+% Direct Recursion
+bits(0) ->
+    0;
+bits(Number) when Number>=0 -> 
+    bits(Number div 2) + Number rem 2.

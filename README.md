@@ -56,3 +56,6 @@ used as an aid for writing the code. The example of a step by step of how the re
 ``` 
 
 Comments in the code further explain this.
+
+##### [Assignment](https://github.com/wordshaker/myfirsterlang/tree/master/Week1/Assignment) - The First Weeks assignment
+
