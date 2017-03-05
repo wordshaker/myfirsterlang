@@ -1,5 +1,5 @@
 -module(assignment).
--export([perimeter/1,area/1,enclose/1]).
+-export([perimeter/1,area/1,enclose/1,bits/1]).
 
 %% perimeter takes a shape & returns the perimeter of the shape
 % I started with a square as the four sides are the same size it seemed the easiest shape.
@@ -45,15 +45,15 @@ area({circle, Diameter}) ->
     A*A.
 
 % Enclose for a triangle
-enclose({triangle, Side1, Side2, Side3}) when Side1 > Side2, Side3->
+enclose({triangle, Side1, Side2, Side3}) when Side1 > Side2, Side1 > Side3->
     Height = ((area({triangle,Side1,Side2,Side3}))/Side1)*2,
     {rectangle, Height, Side1};
-enclose({triangle, Side1, Side2, Side3}) when Side2 > Side1, Side3->
-    Height = ((area({triangle,Side1,Side2,Side3}))/Side1)*2,
-    {rectangle, Height, Side1};
-enclose({triangle, Side1, Side2, Side3}) when Side3 > Side2, Side1->
-    Height = ((area({triangle,Side1,Side2,Side3}))/Side1)*2,
-    {rectangle, Height, Side1};
+enclose({triangle, Side1, Side2, Side3}) when Side2 > Side1, Side2 > Side3->
+    Height = ((area({triangle,Side1,Side2,Side3}))/Side2)*2,
+    {rectangle, Height, Side2};
+enclose({triangle, Side1, Side2, Side3}) when Side3 > Side2, Side3 > Side1->
+    Height = ((area({triangle,Side1,Side2,Side3}))/Side3)*2,
+    {rectangle, Height, Side3};
 enclose({triangle, Side1, Side2, Side3}) ->
     Height = ((area({triangle,Side1,Side2,Side3}))/Side1)*2,
     {rectangle, Height, Side1};
@@ -65,3 +65,17 @@ enclose({triangle, Side1, Side2, Side3}) ->
 % Enclose for a Circle 
 enclose({circle, Diameter}) ->
     {rectangle, Diameter, Diameter}.
+
+% bits -  takes a positive integer N and returns the sum of the bits in the binary representation
+% A positive integer n has b bits 2b-1 ≤ n ≤ 2b – 1.
+% http://www.exploringbinary.com/number-of-bits-in-a-decimal-integer/
+
+% number, divided by 2, grab the remainder, flip em
+
+bits(Number) when Number>0->
+bits(Number, 0).
+
+bits(0, SumOfBits)->
+     SumOfBits;
+bits(Number, SumOfBits) ->
+     bits(Number div 2, SumOfBits+(Number rem 2)). 
